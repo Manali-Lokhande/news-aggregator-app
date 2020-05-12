@@ -1,2 +1,223 @@
 @import "./reset.css";
 
+@mixin data-theme {
+   font-color:black;
+   border-color: black;
+   img-background:white;
+   author-color:black;
+}
+body{
+    background-color: black;
+    box-sizing: border-box;
+    font-family:'Montserrat',sans-serif;
+}   
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+$desktop:425px;
+@mixin desktop {
+    @media(max-width: #{desktop}){
+        @content;
+    } 
+}
+
+section{
+    margin: 10px 50px;
+    @include desktop(){
+        margin: 10px 5px;
+    }
+
+.mainheading{
+        text-align: center;
+        width: 300px;
+        color: white;
+        border-style: solid;
+        border-color: white;
+        margin-left:550px;
+        margin-right: 550px;
+        padding: 10px;
+        font-size: 15px;
+        @include desktop(){
+            font-size: 16px;
+            width: 60%;
+        }
+    .toggle{
+        color: black;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin-left: 16%;
+        display: inline-block;
+    }    
+    #toggle_action{
+        display: none;
+    }
+    .switch{
+        margin-top: 25px;
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+    .slider{
+        position: absolute ;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition:.4s ;
+    }
+    .slider:before{
+        position: absolute;
+        content: "";
+        height:26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+    input:checked + .slider{
+        background-color: rgba(39,35,35,0.986);
+    }
+    input:focus + .slider{
+        box-shadow: 0 0 1px;
+    }
+    input:checked + .slider:before{
+        -webkit-transform: translateX(26px);
+        -ms-transform: translate(26px);
+        transform: translateX(26px);
+    }
+    .slider.round{
+        border-radius: 34px;
+    }
+    .slider.round.before{
+        border-radius: 50%;
+    }
+ }
+ 
+ .search-bar{
+       width: 85%;
+       margin: 20px auto;
+       input{
+           width: 100%;
+           height: 25px;
+           background: transparent;
+           color: white;
+           padding: 0px;
+           border-top-style: hidden;
+           border-left-style: hidden;
+           border-right-style: hidden;
+           border-bottom-style: groove;
+       }
+  }
+  #news-articles{
+      margin-left: 20px;
+      display: flex;
+      flex-direction: wrap;
+  }
+  .container{
+      max-width: 265px;
+      border: black 10px solid;
+      height: 530px;
+      padding: 35px;
+      margin-left: 10px;
+      background-color: rgba(39,35,35,0.986);
+      margin-bottom: 20px;
+      border-radius: 18px;
+      padding-right: 30px;
+
+  }
+  .article{
+      list-style-type: none;
+      display: inline;
+  }
+  .img-area{
+      width: 265px;
+      height: 250px;
+      background-color: black;
+  }
+  .article-img{
+    width: 250px;
+    height: 150px;
+    @include desktop(){
+        height: 100px;
+        width: 150px;
+      }
+}
+
+  .article-title{
+        background: none;
+        font-family: sans-serif;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+      @include desktop(){
+          font-size: 16px;
+          margin: 5px 0px;
+      }
+  }
+  .article-description{
+      font-size: 25px;
+      color:white;
+      background: none;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-family: sans-serif;
+      display: -webkit-box;
+    -webkit-line-clamp: 3;
+     -webkit-box-orient: vertical;
+      @include desktop(){
+        font-size: 12px;
+        margin: 5px 0px;
+      }
+  }
+  .article-author{
+      background: none;
+      font-size: 25px;
+      color:#03DAC5;
+      text-align: right;
+      position: relative;
+      display: block;
+      @include desktop(){
+        font-size: 8px;
+        margin: 5px 0px;
+      }
+
+  }
+} 
+
+.load{
+    margin: 200px auto;
+    text-align: center;
+    color: rgb(123,124,124);
+    svg{
+        height: 80px;
+        width: 80px;
+        fill: rgb(123,124,124);
+        transform-origin: 44% 50%;
+        animation: rotate 1.5s infinite linear;
+        }
+        @keyframes rotates {
+            0%{
+                transform: rotate(0);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+}
+.not-found{
+    color:white;
+    margin-left: 25px;
+    list-style-type: none;
+    font-size: 35px;
+    font-family: sans-serif;
+}
