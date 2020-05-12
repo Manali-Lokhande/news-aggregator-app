@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>News Aggregator</title>
-</head>
-<body>
-  <h1 class="site-title">News Aggregator</h1>
-  
-  <div class="search-container">
-    <input type="text" name="search" id="search" placeholder="Type and press enter to search..." />
-  </div>
+    <head>
+        <link rel="stylesheet" type="text/css" href="styles/index.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat&display=swap">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+    <body onload="start()">
+        <!--header and toggle key-->
+    <section>
+        <div class="mainheading"> NEWS AGGREGATOR</div>
+       <div class="toggle">Toggle to Lite Mode</div>
+        <label class="switch">
+            <input type="checkbox" id="toggle_action" unchecked>
+            <div class="slider round"></div>
+        </label>
 
-  <ul id="news-articles">
+        <!--search-bar-->
+        <div class="search-bar">
+            <form class="searchcon">
+            <input type="text" name="search" id="search" placeholder="Type and press enter to search..."/>
+        </form>
+        </div>
 
-  </ul>
-</body>
+        <!--news display--> 
+        <ul id="news-articals"></ul>
+    </section>    
+    <script src="script/index.js"></script>
+    </body>
 </html>
