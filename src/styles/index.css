@@ -1,223 +1,114 @@
 @import "./reset.css";
 
-@mixin data-theme {
-   font-color:black;
-   border-color: black;
-   img-background:white;
-   author-color:black;
+body 
+{
+  background: #212121;
+  color: white;
 }
-body{
-    background-color: black;
-    box-sizing: border-box;
-    font-family:'Montserrat',sans-serif;
-}   
-
-a{
-    color: white;
-    text-decoration: none;
-}
-
-$desktop:425px;
-@mixin desktop {
-    @media(max-width: #{desktop}){
-        @content;
-    } 
+.site-title 
+{
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 24px;
+  padding: 16px;
+  width: 280px;
+  margin: 16px auto;
+  border: 1px solid white;
 }
 
-section{
-    margin: 10px 50px;
-    @include desktop(){
-        margin: 10px 5px;
-    }
+.search-container
+{
+  margin-left:7%;
+}
 
-.mainheading{
-        text-align: center;
-        width: 300px;
-        color: white;
-        border-style: solid;
-        border-color: white;
-        margin-left:550px;
-        margin-right: 550px;
-        padding: 10px;
-        font-size: 15px;
-        @include desktop(){
-            font-size: 16px;
-            width: 60%;
-        }
-    .toggle{
-        color: black;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        margin-left: 16%;
-        display: inline-block;
-    }    
-    #toggle_action{
-        display: none;
-    }
-    .switch{
-        margin-top: 25px;
-        position: relative;
-        display: inline-block;
-        width: 60px;
-        height: 34px;
-    }
-    .slider{
-        position: absolute ;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: white;
-        -webkit-transition: .4s;
-        transition:.4s ;
-    }
-    .slider:before{
-        position: absolute;
-        content: "";
-        height:26px;
-        width: 26px;
-        left: 4px;
-        bottom: 4px;
-        background-color: white;
-        -webkit-transition: .4s;
-        transition: .4s;
-    }
-    input:checked + .slider{
-        background-color: rgba(39,35,35,0.986);
-    }
-    input:focus + .slider{
-        box-shadow: 0 0 1px;
-    }
-    input:checked + .slider:before{
-        -webkit-transform: translateX(26px);
-        -ms-transform: translate(26px);
-        transform: translateX(26px);
-    }
-    .slider.round{
-        border-radius: 34px;
-    }
-    .slider.round.before{
-        border-radius: 50%;
-    }
- }
+#search 
+{
+  width: 90%;
+  padding: 16px;
+  box-sizing: border-box;
+  border: 0;
+  border-bottom: 1px solid white;
+  color: #fff;
+  background: transparent;
+}
+
+#search:hover
+{
+  transform: scale(1.03);
+   border-bottom: 2px solid white;
  
- .search-bar{
-       width: 85%;
-       margin: 20px auto;
-       input{
-           width: 100%;
-           height: 25px;
-           background: transparent;
-           color: white;
-           padding: 0px;
-           border-top-style: hidden;
-           border-left-style: hidden;
-           border-right-style: hidden;
-           border-bottom-style: groove;
-       }
-  }
-  #news-articles{
-      margin-left: 20px;
-      display: flex;
-      flex-direction: wrap;
-  }
-  .container{
-      max-width: 265px;
-      border: black 10px solid;
-      height: 530px;
-      padding: 35px;
-      margin-left: 10px;
-      background-color: rgba(39,35,35,0.986);
-      margin-bottom: 20px;
-      border-radius: 18px;
-      padding-right: 30px;
-
-  }
-  .article{
-      list-style-type: none;
-      display: inline;
-  }
-  .img-area{
-      width: 265px;
-      height: 250px;
-      background-color: black;
-  }
-  .article-img{
-    width: 250px;
-    height: 150px;
-    @include desktop(){
-        height: 100px;
-        width: 150px;
-      }
+  transition: all 0.4s;
 }
 
-  .article-title{
-        background: none;
-        font-family: sans-serif;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-      @include desktop(){
-          font-size: 16px;
-          margin: 5px 0px;
-      }
-  }
-  .article-description{
-      font-size: 25px;
-      color:white;
-      background: none;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      font-family: sans-serif;
-      display: -webkit-box;
-    -webkit-line-clamp: 3;
-     -webkit-box-orient: vertical;
-      @include desktop(){
-        font-size: 12px;
-        margin: 5px 0px;
-      }
-  }
-  .article-author{
-      background: none;
-      font-size: 25px;
-      color:#03DAC5;
-      text-align: right;
-      position: relative;
-      display: block;
-      @include desktop(){
-        font-size: 8px;
-        margin: 5px 0px;
-      }
-
-  }
-} 
-
-.load{
-    margin: 200px auto;
-    text-align: center;
-    color: rgb(123,124,124);
-    svg{
-        height: 80px;
-        width: 80px;
-        fill: rgb(123,124,124);
-        transform-origin: 44% 50%;
-        animation: rotate 1.5s infinite linear;
-        }
-        @keyframes rotates {
-            0%{
-                transform: rotate(0);
-            }
-            100%{
-                transform: rotate(360deg);
-            }
-        }
+#news-articles 
+{
+  width: 100%;
+  padding: 30px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 50px;
+  list-style-type: none;
 }
-.not-found{
-    color:white;
-    margin-left: 25px;
-    list-style-type: none;
-    font-size: 35px;
-    font-family: sans-serif;
+
+li.article 
+{
+  padding: 16px;
+  border-radius: 10px;
+  background: #393939;
+  position: relative;
+  cursor: pointer;
+  transform: scale(1);
+}
+
+li.article:hover 
+{
+  transform: scale(1.05);
+  box-shadow: 0 0 20px 0 white;
+}
+
+h2.article-title 
+{
+  margin: 16px 0;
+  line-height: 24px;
+  font-size: 18px;
+  overflow: hidden;
+}
+
+p.article-description 
+{
+  margin-bottom: 16px 0;
+  overflow: hidden;
+  line-height: 24px;
+  color: #ddd;
+}
+
+img.article-img 
+{
+  width: 100%;
+  height: auto;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+span.article-author 
+{
+  display: block;
+  color: lightblue;
+  text-align: right;
+}
+
+a.article-link 
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.not-found
+{
+  display:none;
 }
